@@ -46,11 +46,11 @@ const validate = (values) => {
     :validate="validate"
   >
     <label for="email">Email :</label>
-    <Field :as="'input'" name="email"/>
+    <Field name="email"/>
     <label for="password">Mot de passe :</label>
-    <Field :as="'input'" name="password" type="password"/>
+    <Field name="password" type="password"/>
     <label for="adult">Êtes-vous un adulte ?</label>
-    <Field :as="'input'" type="checkbox" name="adult"/>
+    <Field type="checkbox" name="adult"/>
     <label for="gender">Genre : </label>
     <Field :as="'select'" name="gender">
       <option value="Homme">Homme</option>
