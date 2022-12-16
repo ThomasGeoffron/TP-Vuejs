@@ -1,17 +1,52 @@
 <script setup>
 import HelloWorld from './components/HelloWorld.vue'
+import Formik from "./components/Formik.vue"
+import Field from "./components/Field.vue"
+
+const initialValues = {
+  email: "johndoe@example.com",
+  password: "",
+  adult: false,
+  genre: "",
+};
+
+const validate = (values) => {
+  const errors = {}
+
+  if (!values.email) {
+    errors.email = "Aucun email renseigné";
+  }
+
+  if (!values.password) {
+    errors.password = "Aucun mot de passe renseigné";
+  }
+
+  if (!values.adult) {
+    errors.adult = "Vous n'êtes pas un adulte !";
+  }
+
+  if (!values.genre) {
+    errors.genre = "Aucun genre renseigné";
+  }
+
+  return errors;
+};
+
 </script>
 
 <template>
-  <div>
-    <a href="https://vitejs.dev" target="_blank">
-      <img src="/vite.svg" class="logo" alt="Vite logo" />
-    </a>
-    <a href="https://vuejs.org/" target="_blank">
-      <img src="./assets/vue.svg" class="logo vue" alt="Vue logo" />
-    </a>
-  </div>
-  <HelloWorld msg="Vite + Vue" />
+  <Formik 
+    v-slot="{
+      values,
+      errors,
+      handleSubmit,
+      isSubmitting,
+    }"
+    :initialValues="initialValues"
+    :validate="validate"
+  >
+    <Field :as="input" name="email"/>
+  </Formik>
 </template>
 
 <style scoped>
