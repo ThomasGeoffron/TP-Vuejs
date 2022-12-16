@@ -1,5 +1,4 @@
 <script setup>
-import HelloWorld from './components/HelloWorld.vue'
 import Formik from "./components/Formik.vue"
 import Field from "./components/Field.vue"
 
