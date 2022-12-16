@@ -10,9 +10,11 @@
 </template>
 
 <script setup>
-import { defineProps, inject } from "vue";
+import { defineProps, defineEmits, inject } from "vue";
 
 const formikData = inject('formik-data')
+
+defineEmits(['update:modelValue'])
 
 const props = defineProps({
     as: {

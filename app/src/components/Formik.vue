@@ -40,7 +40,7 @@ provide('formik-data', state);
 </script>
 
 <template>
-  <form @onSubmit.prevent="state.handleSubmit">
+  <form @submit.prevent="state.handleSubmit">
     <slot 
       :values="state.values" 
       :errors="state.errors" 
