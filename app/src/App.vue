@@ -12,7 +12,6 @@ const initialValues = {
 
 const validate = (values) => {
   const errors = {}
-  console.log(values)
 
   if (!values.email) {
     errors.email = "Aucun email renseigné";
@@ -48,13 +47,13 @@ const validate = (values) => {
     :validate="validate"
   >
     <label for="email">Email :</label>
-    <Field :as="'input'" name="email"/>
+    <Field name="email"/>
     <span>{{ errors.email }}</span>
     <label for="password">Mot de passe :</label>
-    <Field :as="'input'" name="password" type="password"/>
+    <Field name="password" type="password"/>
     <span>{{ errors.password }}</span>
     <label for="adult">Êtes-vous un adulte ?</label>
-    <Field :as="'input'" type="checkbox" name="adult"/>
+    <Field type="checkbox" name="adult"/>
     <span>{{ errors.adult }}</span>
     <label for="gender">Genre : </label>
     <Field :as="'select'" name="gender">
