@@ -2,8 +2,8 @@
     <component
         :is="props.as"
         :name="name"
-        :modelValue="formikData.values[name]"
-        @update:modelValue="( value ) => formikData.updateValue(name, value)"
+        :value="formikData.values[name]"
+        @input="( event ) => formikData.updateValue(name, event.target.value)"
     >
         <slot/>
     </component>
@@ -13,8 +13,6 @@
 import { defineProps, defineEmits, inject } from "vue";
 
 const formikData = inject('formik-data')
-
-defineEmits(['update:modelValue'])
 
 const props = defineProps({
     as: {
