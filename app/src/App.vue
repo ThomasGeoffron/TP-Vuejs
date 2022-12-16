@@ -45,7 +45,7 @@ const validate = (values) => {
     :initialValues="initialValues"
     :validate="validate"
   >
-    <Field :as="input" name="email"/>
+    <Field :as="'input'" name="email"/>
   </Formik>
 </template>
 
