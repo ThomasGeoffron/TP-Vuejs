@@ -17,7 +17,7 @@ const formikData = inject('formik-data')
 const props = defineProps({
     as: {
         type: String || Object,
-        required: true,
+        required: false,
         default: 'input'
     },
     name: {

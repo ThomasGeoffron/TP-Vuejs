@@ -18,9 +18,6 @@ const state = reactive({
   values: props.initialValues,
   errors: {},
   isSubmitting: false,
-  addValue: (name, value = "") => {
-    state.values[name] = value;
-  },
   updateValue: (name, value) => {
     state.values[name] = value;
   },
