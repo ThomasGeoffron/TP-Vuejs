@@ -7,7 +7,7 @@ const initialValues = {
   email: "johndoe@example.com",
   password: "",
   adult: false,
-  genre: "",
+  gender: "",
 };
 
 const validate = (values) => {
@@ -26,7 +26,7 @@ const validate = (values) => {
   }
 
   if (!values.genre) {
-    errors.genre = "Aucun genre renseigné";
+    errors.gender = "Aucun genre renseigné";
   }
 
   return errors;
@@ -45,7 +45,20 @@ const validate = (values) => {
     :initialValues="initialValues"
     :validate="validate"
   >
+    <label for="email">Email :</label>
     <Field :as="'input'" name="email"/>
+    <label for="password">Mot de passe :</label>
+    <Field :as="'input'" name="password" type="password"/>
+    <label for="adult">Êtes-vous un adulte ?</label>
+    <Field :as="'input'" type="checkbox" name="adult"/>
+    <label for="gender">Genre : </label>
+    <Field :as="'select'" name="gender">
+      <option value="Homme">Homme</option>
+      <option value="Femme">Femme</option>
+      <option value="Autre">Autre...</option>
+    </Field>
+    <button @click="handleSubmit" :disabled="isSubmitting">Envoyer</button>
+    <p v-if="errors">Il y a des erreurs</p>
   </Formik>
 </template>
 
